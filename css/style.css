@@ -561,6 +561,401 @@ a {
   text-decoration: none;
 }
 
+/* Zombie Survival Spotlight Section */
+.zombie-spotlight {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.zombie-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+  animation: pulse-bg 8s ease-in-out infinite;
+}
+
+@keyframes pulse-bg {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.zombie-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.zombie-label {
+  display: inline-block;
+  background: linear-gradient(90deg, #8b0000, #dc143c);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(220, 20, 60, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(220, 20, 60, 0.8); }
+}
+
+.zombie-header h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, #dc143c, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.zombie-tagline {
+  font-size: 1.3rem;
+  color: #aaa;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.zombie-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.zombie-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.zombie-feature-item {
+  background: rgba(30, 30, 30, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #8b0000;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+  backdrop-filter: blur(10px);
+}
+
+.zombie-feature-item.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zombie-feature-item:hover {
+  border-left-color: #dc143c;
+  background: rgba(40, 20, 20, 0.9);
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+}
+
+.zombie-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.5));
+}
+
+.zombie-feature-item h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #dc143c;
+}
+
+.zombie-feature-item p {
+  color: #ccc;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.zombie-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.zombie-screenshot {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.zombie-screenshot.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zombie-screenshot:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4);
+}
+
+.zombie-screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.zombie-screenshot:hover img {
+  transform: scale(1.1);
+}
+
+.main-screenshot {
+  height: 400px;
+}
+
+.zombie-screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.zombie-screenshots-grid .zombie-screenshot {
+  height: 200px;
+}
+
+.screenshot-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 2rem 1rem 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.placeholder-img {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 50%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.placeholder-img::before {
+  content: '🧟';
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.2;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.zombie-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 12px;
+  border: 2px solid rgba(139, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  backdrop-filter: blur(5px);
+}
+
+.stat-item.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stat-item:hover {
+  border-color: #dc143c;
+  background: rgba(40, 20, 20, 0.8);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #dc143c;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Zombie Maps Carousel */
+.zombie-maps-carousel {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 12px;
+  border: 2px solid rgba(139, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.zombie-maps-carousel.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #dc143c;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carousel-track-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+  padding: 2rem 1rem 1rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.carousel-btn {
+  background: rgba(220, 20, 60, 0.8);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-btn:hover {
+  background: rgba(220, 20, 60, 1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: #dc143c;
+  border-color: rgba(220, 20, 60, 0.5);
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.8);
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
   .gallery-grid {
@@ -608,5 +1003,41 @@ a {
     height: 60px;
     padding: 8px 16px;
     border-radius: 12px;
+  }
+
+  .zombie-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .zombie-screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zombie-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .zombie-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .main-screenshot {
+    height: 250px;
+  }
+
+  .zombie-screenshots-grid .zombie-screenshot {
+    height: 180px;
+  }
+
+  .carousel-slide img {
+    height: 200px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
   }
 }
