@@ -5,31 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="DeadWave privacy policy">
   <title>Privacy Policy - DeadWave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="images/Firewall-Games - white.png" alt="Firewall Games Logo" class="logo-img">
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html#hero">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#game-modes">Game Modes</a></li>
-          <li><a href="index.html#gallery">Gallery</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        </ul>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html#hero" class="logo">
+        <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark">
+        <span>Firewall Games</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">Studio</a>
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#news">News</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
       </nav>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="container" style="padding-top: 100px; padding-bottom: 3rem; min-height: 80vh;">
-
+  <main>
+    <section class="section">
+      <div class="container">
   <h1><em>DeadWave</em> – Privacy Policy</h1>
   <p><strong>Effective Date:</strong> 01.09.2025</p>
   <p><strong>Developer / Publisher:</strong> <a href="https://dev.epicgames.com/community/profile/organization/z86R/firewall-development">Firewall Development</a></p>
@@ -79,20 +83,17 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-logo-container">
-        <img src="images/Firewall-Games - white.png" alt="Firewall Games Logo" class="footer-logo">
-        <p>&copy; 2025 <span class="dev">FirewallGames.dev is managed by Firewall Development</span>. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark footer-logo-mark">
+        <span>Firewall Games</span>
       </div>
-      <div class="social-icons">
-        <a href="#" aria-label="Twitter">T</a>
-        <a href="#" aria-label="YouTube">Y</a>
-        <a href="#" aria-label="Discord">D</a>
-      </div>
+      <p>&copy; <span id="current-year"></span> FirewallGames.dev is managed by Firewall Development. All rights reserved.</p>
+      <p class="footer-note">Built with static HTML/CSS/JS for GitHub Pages.</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
