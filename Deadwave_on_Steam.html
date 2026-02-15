@@ -262,9 +262,10 @@ h1 {
 </div>
 
 <script>
-// Auto-redirect to Steam after 3 seconds
+// Auto-redirect to Steam configuration
+const REDIRECT_DELAY_SECONDS = 3;
 const steamUrl = 'https://store.steampowered.com/app/4347680/';
-let countdown = 3;
+let countdown = REDIRECT_DELAY_SECONDS;
 const countdownElement = document.getElementById('countdown');
 
 const timer = setInterval(() => {
@@ -279,7 +280,7 @@ const timer = setInterval(() => {
 }, 1000);
 
 // Also handle manual click
-document.getElementById('steam-button').addEventListener('click', function(e) {
+document.getElementById('steam-button').addEventListener('click', function() {
   clearInterval(timer);
 });
 </script>
