@@ -1,23 +1,288 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Play DeadWave</title>
+<title>DeadWave - Opening in Steam</title>
+<meta name="description" content="DeadWave - Redirecting to Steam Store">
 <style>
-body{background:#0b0f14;color:white;text-align:center;font-family:sans-serif;padding-top:20%}
-.btn{display:inline-block;padding:18px 28px;background:#1b7fff;color:white;font-size:22px;border-radius:14px;text-decoration:none}
-.small{margin-top:15px;color:#aaa;font-size:14px}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Motiva Sans', Arial, sans-serif;
+  background: linear-gradient(135deg, #1b2838 0%, #2a475e 50%, #1b2838 100%);
+  color: #c7d5e0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.steam-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-header {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.game-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #8f98a0;
+  margin-bottom: 30px;
+}
+
+.redirect-info {
+  background: rgba(0,0,0,0.3);
+  padding: 30px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.countdown {
+  font-size: 64px;
+  font-weight: bold;
+  color: #66c0f4;
+  margin: 20px 0;
+  text-shadow: 0 0 20px rgba(102, 192, 244, 0.5);
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+.loading-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #66c0f4 0%, #417a9b 100%);
+  border-radius: 2px;
+  animation: loading 3s linear forwards;
+  box-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.steam-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(to bottom, #75b022 5%, #588a1b 100%);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: normal;
+  border-radius: 2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.steam-btn:hover {
+  background: linear-gradient(to bottom, #8bc53f 5%, #75b022 100%);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+}
+
+.steam-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.help-text {
+  margin-top: 25px;
+  color: #8f98a0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-badge {
+  background: rgba(102, 192, 244, 0.1);
+  border: 1px solid rgba(102, 192, 244, 0.3);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #66c0f4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+  
+  .game-icon {
+    font-size: 56px;
+  }
+  
+  .countdown {
+    font-size: 48px;
+  }
+  
+  .game-header {
+    padding: 30px 20px;
+  }
+  
+  .redirect-info {
+    padding: 20px;
+  }
+}
 </style>
 </head>
 <body>
+<div class="steam-bg"></div>
 
-<h1>🌊 DeadWave</h1>
-<p>Open in Steam App for best experience</p>
-
-<div class="small">
-If nothing happens,<br>
-<a class="btn" href="https://store.steampowered.com/app/4347680/">OPEN IN STEAM</a>
+<div class="container">
+  <div class="game-header">
+    <div class="game-icon">🌊</div>
+    <h1>DeadWave</h1>
+    <p class="subtitle">Opening in Steam...</p>
+    
+    <div class="features">
+      <span class="feature-badge">Unreal Engine 5</span>
+      <span class="feature-badge">Multiplayer</span>
+      <span class="feature-badge">Zombies</span>
+    </div>
+  </div>
+  
+  <div class="redirect-info">
+    <p>Redirecting to Steam Store in</p>
+    <div class="countdown" id="countdown">3</div>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+    <p class="help-text">You will be automatically redirected to the Steam store page...</p>
+  </div>
+  
+  <a class="steam-btn" href="https://store.steampowered.com/app/4347680/" id="steam-button">
+    Open in Steam Now
+  </a>
+  
+  <p class="help-text">
+    If the redirect doesn't work, click the button above<br>
+    or visit: <strong>store.steampowered.com/app/4347680</strong>
+  </p>
 </div>
 
+<script>
+// Auto-redirect to Steam configuration
+const REDIRECT_DELAY_SECONDS = 3;
+const steamUrl = 'https://store.steampowered.com/app/4347680/';
+let countdown = REDIRECT_DELAY_SECONDS;
+const countdownElement = document.getElementById('countdown');
+
+const timer = setInterval(() => {
+  countdown--;
+  if (countdown > 0) {
+    countdownElement.textContent = countdown;
+  } else {
+    clearInterval(timer);
+    countdownElement.textContent = 'Redirecting...';
+    window.location.href = steamUrl;
+  }
+}, 1000);
+
+// Also handle manual click
+document.getElementById('steam-button').addEventListener('click', function() {
+  clearInterval(timer);
+});
+</script>
 </body>
 </html>
