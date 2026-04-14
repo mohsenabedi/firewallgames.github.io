@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /deadwave_redirector.html
+Disallow: /steam_redirector.html
+Disallow: /Deadwave_on_Steam.html
+Disallow: /_site/
+
+Sitemap: https://firewallgames.dev/sitemap.xml
