@@ -44,7 +44,7 @@ body{
 .hero-align-left .tagline{margin:0 auto 2rem}
 .hero-align-left .cta-group{justify-content:center}
 .hero.hero-deadwave .hero-background{
-  background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('../images/HighresScreenshot00015.png');
+  background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('../images/deadwave-neon-ruins-hero-background.png');
   background-size:cover;
   background-position:center;
 }
@@ -211,7 +211,7 @@ main{padding-top:80px}
   content:"";
   position:absolute;
   inset:0;
-  background-image:linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.9)),url('../images/HighresScreenshot00012.png');
+  background-image:linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.9)),url('../images/deadwave-zombie-survival-co-op-screenshot.png');
   background-size:cover;
   background-position:center;
   filter:blur(8px);
@@ -270,7 +270,7 @@ main{padding-top:80px}
   flex-direction:column;
   gap:2rem;
   border-color:var(--accent-magenta);
-  background-image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('../images/HighresScreenshot00015.png');
+  background-image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('../images/deadwave-neon-ruins-hero-background.png');
   background-size:cover;
   background-position:top;
   background-repeat:no-repeat;
