@@ -7,3 +7,6 @@ Disallow: /Deadwave_on_Steam.html
 Disallow: /_site/
 
 Sitemap: https://firewallgames.dev/sitemap.xml
+
+# AI crawler instructions (llms.txt standard)
+# https://firewallgames.dev/llms.txt
