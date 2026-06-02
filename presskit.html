@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DEADWAVE — Official Press Kit. A stylized arcade zombie shooter by solo developer Mr. Firewall. Coming to Steam.">
+  <title>DEADWAVE — Press Kit</title>
+  <link rel="icon" href="images/Deadwave-icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Cinzel: ancient/epic feel | Rajdhani: military/UI labels | Inter: clean body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════
+       Variables
+       ═══════════════════════════════════════ */
+    :root {
+      --brand:        #29b55c;
+      --brand-dark:   #1c7a3e;
+      --brand-light:  #3dd470;
+      --brand-glow:   rgba(41, 181, 92, 0.2);
+      --bg:           #0a0c0b;
+      --bg-card:      #0f1210;
+      --bg-alt:       #0c0f0d;
+      --text:         #d4e0d8;
+      --text-dim:     #7d9585;
+      --text-muted:   #3d4e43;
+      --border:       #181e1a;
+      --border-brand: #0d2018;
+      --radius:       3px;
+    }
+
+    /* ═══════════════════════════════════════
+       Reset & Base
+       ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ═══════════════════════════════════════
+       Layout
+       ═══════════════════════════════════════ */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+    .section--alt { background: var(--bg-alt); }
+
+    /* ═══════════════════════════════════════
+       Typography helpers
+       ═══════════════════════════════════════ */
+    .section-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 36px;
+      padding-bottom: 16px;
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 44px;
+      height: 2px;
+      background: var(--brand);
+    }
+
+    .prose {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-dim);
+      max-width: 760px;
+    }
+
+    .prose + .prose { margin-top: 1.2em; }
+
+    /* ═══════════════════════════════════════
+       Buttons
+       ═══════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--brand);
+      color: #050f08;
+      border: 1px solid var(--brand);
+    }
+    .btn--primary:hover { background: var(--brand-light); border-color: var(--brand-light); }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--brand-light);
+      border: 1px solid var(--brand-dark);
+    }
+    .btn--outline:hover { background: var(--brand-glow); border-color: var(--brand); }
+
+    /* ═══════════════════════════════════════
+       Topbar
+       ═══════════════════════════════════════ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(9, 11, 10, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-brand);
+      padding: 13px 0;
+    }
+
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar__title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .topbar__title strong { color: var(--brand-light); font-weight: 700; }
+
+    /* ═══════════════════════════════════════
+       Hero
+       ═══════════════════════════════════════ */
+    .hero {
+      padding: 110px 0 90px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 40% at 50% 0%, rgba(41, 181, 92, 0.14) 0%, transparent 70%),
+        linear-gradient(180deg, #080c09 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border-brand);
+    }
+
+    .hero__eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 18px;
+    }
+
+    .hero__icon {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+
+    .hero__title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 10px;
+      color: #fff;
+      text-shadow:
+        0 0 60px rgba(41, 181, 92, 0.45),
+        0 0 120px rgba(41, 181, 92, 0.18);
+      margin-bottom: 18px;
+    }
+
+    .hero__tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 36px;
+    }
+
+    .hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      padding: 5px 14px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brand-light);
+      border: 1px solid var(--brand-dark);
+      border-radius: var(--radius);
+      background: rgba(41, 181, 92, 0.07);
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════
+       Info Grid
+       ═══════════════════════════════════════ */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .info-cell { background: var(--bg-card); padding: 22px 24px; }
+
+    .info-cell__label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+
+    .info-cell__value {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    /* ═══════════════════════════════════════
+       Features List
+       ═══════════════════════════════════════ */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 12px;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brand);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .features-list li::before {
+      content: '▸';
+      color: var(--brand);
+      font-size: 0.85rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       Bio Card
+       ═══════════════════════════════════════ */
+    .bio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--brand);
+      padding: 36px 40px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      max-width: 780px;
+    }
+
+    /* ═══════════════════════════════════════
+       Quotes
+       ═══════════════════════════════════════ */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    blockquote {
+      position: relative;
+      padding: 36px 28px 28px 36px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    blockquote::before {
+      content: '\201C';
+      font-family: 'Cinzel', serif;
+      font-size: 7rem;
+      color: var(--brand);
+      opacity: 0.12;
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    blockquote p {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+      position: relative;
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-style: normal;
+    }
+
+    /* ═══════════════════════════════════════
+       Screenshots Gallery
+       ═══════════════════════════════════════ */
+    .gallery { display: flex; flex-direction: column; gap: 8px; }
+
+    /* Main viewer */
+    .gallery-viewer {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      cursor: zoom-in;
+    }
+
+    .gallery-viewer img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-viewer:hover img { transform: scale(1.02); }
+
+    .gallery-viewer__hint {
+      position: absolute;
+      bottom: 14px;
+      right: 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      background: rgba(0, 0, 0, 0.55);
+      padding: 4px 11px;
+      border-radius: 2px;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* Thumbnails strip */
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      padding: 0;
+      cursor: pointer;
+      background: var(--bg-card);
+      transition: border-color 0.2s;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-thumb:hover img { opacity: 0.85; }
+    .gallery-thumb.active img { opacity: 1; }
+    .gallery-thumb.active { border-color: var(--brand); }
+    .gallery-thumb:hover:not(.active) { border-color: var(--brand-dark); }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.93);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox__img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      cursor: default;
+      box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
+      display: block;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 1.4rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.18s;
+    }
+
+    .lightbox__close:hover { background: rgba(255, 255, 255, 0.18); }
+
+    .lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 1.4rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.18s;
+    }
+
+    .lightbox__nav:hover { background: rgba(255, 255, 255, 0.16); }
+    .lightbox__nav--prev { left: 24px; }
+    .lightbox__nav--next { right: 24px; }
+
+    .lightbox__counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.35);
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════
+       Links Grid
+       ═══════════════════════════════════════ */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+
+    .link-card:hover { border-color: var(--brand); background: rgba(41, 181, 92, 0.05); }
+
+    .link-card__icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(41, 181, 92, 0.08);
+      border: 1px solid var(--brand-dark);
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .link-card__info { display: flex; flex-direction: column; }
+
+    .link-card__label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 2px;
+    }
+
+    .link-card__name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════
+       Press Contact
+       ═══════════════════════════════════════ */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--brand);
+      padding: 40px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      max-width: 560px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /*
+      Spam-safe email:
+      - The email address is NOT present anywhere as plain text in the HTML.
+      - It is rendered entirely via CSS content: attr(), keeping it invisible to
+        basic scrapers that parse the DOM or search for "@" in markup.
+      - The href uses HTML character entities so "mailto:" and "@" don't appear
+        as literal strings in the source.
+    */
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--brand-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--brand-dark);
+      padding-bottom: 2px;
+      transition: color 0.18s, border-color 0.18s;
+    }
+
+    .contact-email:hover { color: #fff; border-color: var(--brand-light); }
+
+    /* Renders "social@firewallgames.dev" — exists only in CSS, not in HTML source */
+    .contact-email::before {
+      content: attr(data-user) "@" attr(data-domain);
+    }
+
+    /* ═══════════════════════════════════════
+       Footer
+       ═══════════════════════════════════════ */
+    footer {
+      background: #060806;
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    footer strong { color: var(--brand); font-weight: 700; }
+
+    /* ═══════════════════════════════════════
+       Responsive
+       ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .gallery-thumbs { grid-template-columns: repeat(5, 1fr); }
+      .lightbox__nav--prev { left: 10px; }
+      .lightbox__nav--next { right: 10px; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 56px 0; }
+      .hero { padding: 80px 0 60px; }
+      .hero__title { letter-spacing: 4px; }
+      .bio-card, .contact-card { padding: 28px 24px; }
+      .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+      .features-list { grid-template-columns: 1fr; }
+      .topbar__title { display: none; }
+      .lightbox__nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       TOPBAR
+       ════════════════════════════════════════ -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__title"><strong>DEADWAVE</strong> — Press Kit</span>
+      <!-- UPDATE: Replace # with the actual URL to your press kit ZIP file -->
+      <a href="#" class="btn btn--primary">&#8595; Download Press Kit</a>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero__eyebrow">Official Press Kit</p>
+      <img src="images/Deadwave-icon.png" alt="DEADWAVE icon" class="hero__icon">
+      <h1 class="hero__title">DEADWAVE</h1>
+      <p class="hero__tagline">Survive the Wave. Outlast the Dark.</p>
+      <div class="hero__tags">
+        <span class="tag">Arcade Shooter</span>
+        <span class="tag">Third-Person</span>
+        <span class="tag">Zombie Survival</span>
+        <span class="tag">PC &middot; Steam</span>
+        <span class="tag">Demo Available</span>
+        <span class="tag">Unreal Engine 5</span>
+      </div>
+      <div class="hero__actions">
+        <a href="https://store.steampowered.com/app/4347680" target="_blank" rel="noopener" class="btn btn--primary">View on Steam</a>
+        <a href="https://store.steampowered.com/app/4348000/DeadWave_Demo/" target="_blank" rel="noopener" class="btn btn--outline">Play Demo Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       GAME INFO
+       ════════════════════════════════════════ -->
+  <section class="section" id="info">
+    <div class="container">
+      <p class="section-eyebrow">At a Glance</p>
+      <h2 class="section-heading">Game Info</h2>
+      <div class="info-grid">
+        <div class="info-cell">
+          <p class="info-cell__label">Title</p>
+          <p class="info-cell__value">DEADWAVE</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Genre</p>
+          <p class="info-cell__value">Arcade Zombie Shooter / Third-Person</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Platform</p>
+          <p class="info-cell__value">PC (Steam)</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Price</p>
+          <p class="info-cell__value">€14.99</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Release</p>
+          <p class="info-cell__value">Coming Soon</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Demo</p>
+          <p class="info-cell__value">Available Now</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Developer</p>
+          <p class="info-cell__value">Mr. Firewall</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Team Size</p>
+          <p class="info-cell__value">Solo Developer</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Location</p>
+          <p class="info-cell__value">Berlin, Germany</p>
+        </div>
+        <div class="info-cell">
+          <p class="info-cell__label">Engine</p>
+          <p class="info-cell__value">Unreal Engine 5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SHORT DESCRIPTION
+       ════════════════════════════════════════ -->
+  <section class="section section--alt" id="overview">
+    <div class="container">
+      <p class="section-eyebrow">Overview</p>
+      <h2 class="section-heading">About the Game</h2>
+      <p class="prose">
+        DEADWAVE is a stylized third-person arcade zombie shooter with ancient themed maps.
+        Play solo or with friends — survive endless waves, earn credits, upgrade your gear,
+        and unlock new maps.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       KEY FEATURES
+       ════════════════════════════════════════ -->
+  <section class="section" id="features">
+    <div class="container">
+      <p class="section-eyebrow">What Sets It Apart</p>
+      <h2 class="section-heading">Key Features</h2>
+      <ul class="features-list">
+        <li>Arcade zombie survival with 20 rounds of escalating intensity</li>
+        <li>Unique zombie types — Skeletons, Necromancers, and Spiders</li>
+        <li>Co-op multiplayer — play solo or with friends</li>
+        <li>Credit system — earn, manage, and spend on weapons and upgrades</li>
+        <li>Killstreaks including airstrikes and nukes</li>
+        <li>Prop Hunt party mode with ancient themed maps</li>
+        <li>Classic PvP modes — Team Deathmatch, Free-For-All, Capture the Flag</li>
+        <li>Adaptive difficulty system that responds to player performance</li>
+        <li>Multiple maps unlocked through progression</li>
+        <li>Built on Unreal Engine 5</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       LONG DESCRIPTION
+       ════════════════════════════════════════ -->
+  <section class="section section--alt" id="description">
+    <div class="container">
+      <p class="section-eyebrow">Full Description</p>
+      <h2 class="section-heading">More About DEADWAVE</h2>
+      <p class="prose">
+        DEADWAVE is a classic stylized third-person shooter built by a solo indie developer, set across
+        striking ancient-themed locations — from Egyptian sands to crumbling temples. Every match turns
+        into a desperate, chaotic last stand. Fight through increasingly intense zombie waves, earn credits
+        to buy weapons and upgrades, and survive long enough to unlock bigger maps and harder challenges.
+      </p>
+      <p class="prose">
+        Play alone or team up with friends in co-op, or take a break from the horde with party modes
+        including Prop Hunt, Team Deathmatch, Free-For-All, and Capture the Flag.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       DEVELOPER BIO
+       ════════════════════════════════════════ -->
+  <section class="section" id="developer">
+    <div class="container">
+      <p class="section-eyebrow">The Developer</p>
+      <h2 class="section-heading">About Mr. Firewall</h2>
+      <div class="bio-card">
+        <p class="prose">
+          Mr. Firewall is a solo indie developer and network engineer based in Berlin, Germany.
+          With 10 years of professional experience in networking, he channeled his curiosity about
+          how multiplayer games work into building one from scratch — alongside a full-time job.
+        </p>
+        <p class="prose">
+          DEADWAVE started as a personal learning project and grew into a fully featured multiplayer
+          game over three years of evenings, weekends, bug fixes at midnight, and playtests with family.
+          It is his first commercial game.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       QUOTES
+       ════════════════════════════════════════ -->
+  <section class="section section--alt" id="quotes">
+    <div class="container">
+      <p class="section-eyebrow">In His Words</p>
+      <h2 class="section-heading">Developer Quotes</h2>
+      <div class="quotes-grid">
+        <blockquote>
+          <p>"I spent 10 years managing networks and playing Call of Duty. Eventually I had to find out how it all worked — so I built my own multiplayer game."</p>
+          <cite>— Mr. Firewall, Solo Developer</cite>
+        </blockquote>
+        <blockquote>
+          <p>"No team. No budget. Just me, my PC, and a lot of late nights."</p>
+          <cite>— Mr. Firewall, Solo Developer</cite>
+        </blockquote>
+        <blockquote>
+          <p>"It started as a learning project. Then my wife kept wanting to play it — so I knew it was something real."</p>
+          <cite>— Mr. Firewall, Solo Developer</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SCREENSHOTS
+       Main viewer + thumbnail strip.
+       Clicking a thumb updates the viewer.
+       Clicking the viewer opens the lightbox.
+       ════════════════════════════════════════ -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <p class="section-eyebrow">Media</p>
+      <h2 class="section-heading">Screenshots</h2>
+      <div class="gallery">
+
+        <!-- Main viewer -->
+        <div class="gallery-viewer" onclick="openLightbox(currentIndex)" aria-label="View screenshot fullscreen">
+          <img id="galleryMain"
+               src="images/presskit/vlcsnap-2026-05-19-18h10m14s311.png"
+               alt="DEADWAVE screenshot 1">
+          <span class="gallery-viewer__hint">&#x26F6; Click to enlarge</span>
+        </div>
+
+        <!-- Thumbnail strip — all 9 screenshots -->
+        <div class="gallery-thumbs">
+          <button class="gallery-thumb active" onclick="selectShot(0)" aria-label="Screenshot 1">
+            <img src="images/presskit/vlcsnap-2026-05-19-18h10m14s311.png" alt="Screenshot 1">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(1)" aria-label="Screenshot 2">
+            <img src="images/presskit/vlcsnap-2026-05-19-11h23m43s628.png" alt="Screenshot 2">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(2)" aria-label="Screenshot 3">
+            <img src="images/presskit/vlcsnap-2026-05-16-13h35m37s578.png" alt="Screenshot 3">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(3)" aria-label="Screenshot 4">
+            <img src="images/presskit/vlcsnap-2026-05-09-09h46m05s601.png" alt="Screenshot 4">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(4)" aria-label="Screenshot 5">
+            <img src="images/presskit/vlcsnap-2026-02-25-14h01m04s133.png" alt="Screenshot 5">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(5)" aria-label="Screenshot 6">
+            <img src="images/presskit/vlcsnap-2026-02-25-13h56m29s707.png" alt="Screenshot 6">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(6)" aria-label="Screenshot 7">
+            <img src="images/presskit/vlcsnap-2026-02-25-13h50m27s229.png" alt="Screenshot 7">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(7)" aria-label="Screenshot 8">
+            <img src="images/presskit/vlcsnap-2026-02-25-13h42m45s915.png" alt="Screenshot 8">
+          </button>
+          <button class="gallery-thumb" onclick="selectShot(8)" aria-label="Screenshot 9">
+            <img src="images/presskit/vlcsnap-2026-02-22-01h00m05s845.png" alt="Screenshot 9">
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       LINKS & ASSETS
+       ════════════════════════════════════════ -->
+  <section class="section section--alt" id="links">
+    <div class="container">
+      <p class="section-eyebrow">Find Us</p>
+      <h2 class="section-heading">Links &amp; Download Assets</h2>
+      <div class="links-grid">
+        <a href="https://store.steampowered.com/app/4347680" target="_blank" rel="noopener" class="link-card">
+          <span class="link-card__icon">🎮</span>
+          <span class="link-card__info">
+            <span class="link-card__label">Steam</span>
+            <span class="link-card__name">Steam Page</span>
+          </span>
+        </a>
+        <a href="https://store.steampowered.com/app/4348000/DeadWave_Demo/" target="_blank" rel="noopener" class="link-card">
+          <span class="link-card__icon">&#9654;</span>
+          <span class="link-card__info">
+            <span class="link-card__label">Demo</span>
+            <span class="link-card__name">Play Demo Free</span>
+          </span>
+        </a>
+        <a href="https://discord.gg/STkT4r2FJD" target="_blank" rel="noopener" class="link-card">
+          <span class="link-card__icon">💬</span>
+          <span class="link-card__info">
+            <span class="link-card__label">Community</span>
+            <span class="link-card__name">Discord Server</span>
+          </span>
+        </a>
+        <a href="https://www.tiktok.com/@firewall.games" target="_blank" rel="noopener" class="link-card">
+          <span class="link-card__icon">📱</span>
+          <span class="link-card__info">
+            <span class="link-card__label">Social</span>
+            <span class="link-card__name">TikTok</span>
+          </span>
+        </a>
+        <!-- UPDATE: Replace # with the actual URL to your press kit ZIP file -->
+        <a href="#" class="link-card">
+          <span class="link-card__icon">📦</span>
+          <span class="link-card__info">
+            <span class="link-card__label">Assets</span>
+            <span class="link-card__name">Download Press Kit ZIP</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       PRESS CONTACT
+       ════════════════════════════════════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-eyebrow">For Press</p>
+      <h2 class="section-heading">Press Contact</h2>
+      <div class="contact-card">
+        <h3>Mr. Firewall — Solo Developer</h3>
+        <p>For review copies, interviews, or any press inquiries, reach out directly:</p>
+        <!--
+          Spam protection: the email address is not present as plain text anywhere in this file.
+          - href uses HTML character entities (no "mailto:" or "@" as literal strings in source)
+          - The visible text is injected by CSS via content: attr() — invisible to DOM scrapers
+          - data-user and data-domain are split to avoid the full address appearing in one attribute
+        -->
+        <a class="contact-email"
+           href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#111;&#99;&#105;&#97;&#108;&#64;&#102;&#105;&#114;&#101;&#119;&#97;&#108;&#108;&#103;&#97;&#109;&#101;&#115;&#46;&#100;&#101;&#118;"
+           data-user="social"
+           data-domain="firewallgames.dev"
+           aria-label="Email: social at firewallgames dot dev">
+          &#9993;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       LIGHTBOX OVERLAY
+       ════════════════════════════════════════ -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" onclick="event.stopPropagation(); navLightbox(-1)" aria-label="Previous">&#8249;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+    <button class="lightbox__nav lightbox__nav--next" onclick="event.stopPropagation(); navLightbox(1)" aria-label="Next">&#8250;</button>
+    <span class="lightbox__counter" id="lightboxCounter"></span>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <p>&copy; <strong>Mr. Firewall</strong> 2026 &nbsp;&middot;&nbsp; DEADWAVE is a trademark of Mr. Firewall. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    var shots = [
+      { src: 'images/presskit/vlcsnap-2026-05-19-18h10m14s311.png', alt: 'DEADWAVE screenshot 1' },
+      { src: 'images/presskit/vlcsnap-2026-05-19-11h23m43s628.png', alt: 'DEADWAVE screenshot 2' },
+      { src: 'images/presskit/vlcsnap-2026-05-16-13h35m37s578.png', alt: 'DEADWAVE screenshot 3' },
+      { src: 'images/presskit/vlcsnap-2026-05-09-09h46m05s601.png', alt: 'DEADWAVE screenshot 4' },
+      { src: 'images/presskit/vlcsnap-2026-02-25-14h01m04s133.png', alt: 'DEADWAVE screenshot 5' },
+      { src: 'images/presskit/vlcsnap-2026-02-25-13h56m29s707.png', alt: 'DEADWAVE screenshot 6' },
+      { src: 'images/presskit/vlcsnap-2026-02-25-13h50m27s229.png', alt: 'DEADWAVE screenshot 7' },
+      { src: 'images/presskit/vlcsnap-2026-02-25-13h42m45s915.png', alt: 'DEADWAVE screenshot 8' },
+      { src: 'images/presskit/vlcsnap-2026-02-22-01h00m05s845.png', alt: 'DEADWAVE screenshot 9' }
+    ];
+
+    var currentIndex = 0;
+
+    function selectShot(index) {
+      currentIndex = index;
+      var main = document.getElementById('galleryMain');
+      main.src = shots[index].src;
+      main.alt = shots[index].alt;
+      document.querySelectorAll('.gallery-thumb').forEach(function(t, i) {
+        t.classList.toggle('active', i === index);
+      });
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightboxImg').src = shots[index].src;
+      document.getElementById('lightboxImg').alt = shots[index].alt;
+      document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + shots.length;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navLightbox(dir) {
+      var next = (currentIndex + dir + shots.length) % shots.length;
+      selectShot(next);
+      openLightbox(next);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  navLightbox(1);
+      if (e.key === 'ArrowLeft')   navLightbox(-1);
+    });
+  </script>
+</body>
+</html>
