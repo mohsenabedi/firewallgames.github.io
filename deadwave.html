@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +11,7 @@
   <title>Deadwave | Arcade Zombie Game – Fast-Paced Multiplayer Co-op for PC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Orbitron for tech/cyberpunk UI, Nosifer for horror headings -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Nosifer&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/Deadwave-icon.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="ai-instructions" type="text/markdown" href="https://firewallgames.dev/llms.txt">
@@ -171,11 +170,20 @@
   </script>
 </head>
 <body class="theme-deadwave detail-page">
+  <!-- boot / signal-lock preloader -->
+  <div class="boot" aria-hidden="true">
+    <p class="boot-label">Intercepting Deadwave</p>
+    <div class="boot-bar"></div>
+  </div>
+
+  <!-- CRT texture overlay -->
+  <div class="crt" aria-hidden="true"><div class="crt-noise"></div></div>
+
   <header class="site-header">
     <div class="container nav-wrapper">
       <a href="index.html" class="logo">
         <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark">
-        <span>Firewall Games</span>
+        <span>Firewall<b>&nbsp;Games</b></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
@@ -183,16 +191,14 @@
         <span></span>
       </button>
       <nav class="site-nav" aria-label="Deadwave">
-        <a href="#hero" data-scroll>Top</a>
         <a href="#overview" data-scroll>Overview</a>
-        <a href="#zombie-mode" data-scroll>Zombie Mode</a>
+        <a href="#zombie-mode" data-scroll>Zombies</a>
         <a href="#systems" data-scroll>Systems</a>
         <a href="#modes" data-scroll>Modes</a>
         <a href="#gallery" data-scroll>Screens</a>
-        <a href="#steam" data-scroll>Steam</a>
         <a href="#faq" data-scroll>FAQ</a>
-        <a href="#contact" data-scroll>Contact</a>
         <a href="presskit.html">Press Kit</a>
+        <a class="nav-cta" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">Wishlist</a>
       </nav>
     </div>
   </header>
@@ -200,35 +206,63 @@
   <main>
     <section id="hero" class="hero hero-deadwave">
       <div class="hero-background" aria-hidden="true">
+        <div class="hero-photo" style="background-image:url('images/background.jpg');"></div>
         <div class="hero-grid"></div>
-        <div class="hero-orb orb-one"></div>
-        <div class="hero-orb orb-two"></div>
-        <div class="hero-noise"></div>
+        <div class="hero-scan"></div>
       </div>
-      <div class="container hero-inner hero-align-left">
-        <p class="microcopy">Transmission 09 // Deadwave</p>
-        <h1 class="glitch-title" data-glitch="Deadwave">Deadwave</h1>
-        <p class="tagline">Deadwave is a fast-paced arcade zombie game for PC — squads battle through co-op zombie survival waves, competitive PvP firefights, and Prop Hunt chaos. A stylized zombie game perfect for kids, teens, and hardcore fans alike.</p>
+      <div class="container hero-inner">
+        <p class="microcopy">Transmission 09 // first solo game by Firewall Games</p>
+        <h1 class="hero-title">
+          <span class="row"><span class="glitch lit" data-glitch="Dead">Dead</span><span class="glitch hollow" data-glitch="wave">wave</span></span>
+        </h1>
+        <p class="tagline">A fast-paced arcade zombie game for PC — squads battle through co-op zombie survival waves, competitive PvP firefights, and Prop Hunt chaos. A stylized zombie game perfect for kids, teens, and hardcore fans alike.</p>
         <div class="detail-metadata">
           <span>Unreal Engine 5</span>
           <span>Multiplayer + Co-op</span>
-          <span>Status: Pre-Release</span>
-          <span>New zombie game</span>
+          <span>Free demo on Steam</span>
+          <span class="hot">Releasing June 2026</span>
         </div>
         <div class="cta-group">
-          <a href="#contact" class="btn primary" data-scroll>Request Briefing</a>
-          <a href="index.html#projects" class="btn ghost">Back to Studio</a>
+          <a class="btn primary" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">
+            <svg class="steam-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49c.06 0 .11 0 .17.01l2.4-3.47v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.44c0 .04.01.08.01.13a2.84 2.84 0 0 1-5.66.29L2.2 14.49A10 10 0 1 0 12 2zm-5.92 14.64l-1.72-.71a2.13 2.13 0 0 0 3.86.6 2.13 2.13 0 0 0-1.03-2.82l1.78.74a1.57 1.57 0 1 1-2.89 2.19zm9.68-5.39a2.52 2.52 0 1 0-2.52-2.52 2.52 2.52 0 0 0 2.52 2.52z"/></svg>
+            <span>Wishlist on Steam</span>
+          </a>
+          <a href="#zombie-mode" class="btn" data-scroll><span>See the horde</span></a>
+          <a href="index.html" class="btn"><span>Back to studio</span></a>
+        </div>
+      </div>
+      <div class="hero-meta" aria-hidden="true">
+        <div class="hero-meta-inner">
+          <span class="live">Signal live</span>
+          <span>$14.99 // free demo</span>
+          <span>PC / Steam</span>
+          <span>Scroll to survive ↓</span>
         </div>
       </div>
     </section>
 
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Every broadcast spawns a horde</span>
+        <span>20 rounds of escalation</span>
+        <span>Boss rituals every 5 waves</span>
+        <span>Team Deathmatch 6v6</span>
+        <span>Capture the Flag</span>
+        <span>Prop Hunt</span>
+        <span>Co-op survival 1–4</span>
+        <span>Free demo on Steam</span>
+      </div>
+    </div>
+
     <section id="overview" class="section about detail-overview">
       <div class="container about-grid">
-        <div class="about-copy" data-reveal>
-          <p class="eyebrow">Game overview</p>
-          <h2>Neon necromancy meets tactical survival</h2>
-          <p>Deadwave keeps every match fresh with arcade-style playlists flowing from Team Deathmatch and Capture the Flag to round-based co-op zombie survival — all built in Unreal Engine 5 and easy to pick up for kids, teens, and veteran zombie game fans.</p>
-          <ul class="detail-list">
+        <div class="about-copy">
+          <div class="sec-head" data-reveal>
+            <p class="sig">DW/01 — Game overview</p>
+            <h2>Neon necromancy meets <em>tactical survival</em></h2>
+          </div>
+          <p data-reveal>Deadwave keeps every match fresh with arcade-style playlists flowing from Team Deathmatch and Capture the Flag to round-based co-op zombie survival — all built in Unreal Engine 5 and easy to pick up for kids, teens, and veteran zombie game fans.</p>
+          <ul class="detail-list" data-reveal>
             <li>Fast, kinetic arcade gunplay tuned for pads + mouse — great for young players and veterans.</li>
             <li>Round-based zombie waves with escalating difficulty — classic arcade zombie game loop.</li>
             <li>Shared inventory tech between PvP and co-op zombie survival playlists.</li>
@@ -236,7 +270,7 @@
             <li>Eight stylized launch maps, with more Unreal Engine 5 arenas coming after release.</li>
           </ul>
         </div>
-        <div class="detail-panels" data-reveal>
+        <div data-reveal>
           <div class="stat-grid">
             <article class="stat-card">
               <p class="stat-label">Modes</p>
@@ -245,7 +279,7 @@
             </article>
             <article class="stat-card">
               <p class="stat-label">Players</p>
-              <p class="stat-value">1-12</p>
+              <p class="stat-value">1–12</p>
               <small>Cross-play sessions powered by EOS.</small>
             </article>
             <article class="stat-card">
@@ -261,24 +295,26 @@
 
     <section id="zombie-mode" class="section focus focus-zombie">
       <div class="container focus-grid">
-        <div class="focus-copy" data-reveal>
-          <p class="eyebrow">Featured playlist</p>
-          <h2>Zombies</h2>
-          <p>Survive escalating rounds while different types of zombies try to overwhelm your squad. Deadwave's co-op mode ties squads together through infection risk, limited lives, and wave-based bosses worthy of a stylized Unreal Engine 5 showcase.</p>
-          <div class="feature-chips">
+        <div class="focus-copy">
+          <div class="sec-head" data-reveal>
+            <p class="sig">DW/02 — Featured playlist</p>
+            <h2><em>Zombies</em></h2>
+          </div>
+          <p data-reveal>Survive escalating rounds while different types of zombies try to overwhelm your squad. Deadwave's co-op mode ties squads together through infection risk, limited lives, and wave-based bosses worthy of a stylized Unreal Engine 5 showcase.</p>
+          <div class="feature-chips" data-reveal>
             <span class="feature-chip">20 Rounds of escalation</span>
             <span class="feature-chip">Boss rituals every 5 waves</span>
             <span class="feature-chip">Shared life pool + revives</span>
             <span class="feature-chip">Virus + vaccine system</span>
             <span class="feature-chip">Kill Streaks, Nuke, Invincibility and more</span>
-            <span class="feature-chip">Armor And Health Upgrades</span>
+            <span class="feature-chip">Armor and Health Upgrades</span>
             <span class="feature-chip">Stylized zombies game loop</span>
           </div>
         </div>
         <div class="focus-media" data-reveal>
           <div class="frame">
-            <img src="images/deadwave-zombie-survival-co-op-screenshot.png" alt="Deadwave co-op zombie survival screenshot - arcade zombie game PC">
-            <p>Field capture // Infection bloom</p>
+            <img src="images/presskit/vlcsnap-2026-05-19-18h10m14s311.png" alt="Deadwave co-op zombie survival gameplay - surviving wave 9 of 20 in the foggy graveyard, arcade zombie game PC" loading="lazy">
+            <p class="frame-cap"><span>Field capture // wave 9 of 20</span><b>● rec</b></p>
           </div>
           <ul class="detail-list">
             <li>Power pickups like the Nuke can reset entire rounds.</li>
@@ -291,37 +327,43 @@
 
     <section id="systems" class="section systems">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Core systems</p>
-          <h2>Signal-bent mechanics built for replay.</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/03 — Core systems</p>
+          <h2>Signal-bent mechanics <em>built for replay</em></h2>
         </div>
         <div class="system-grid">
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/01</p>
             <h3>Signal Arsenal</h3>
             <p>Advanced weapon sandbox w/ reactive audio, camera shake tuning, and modular attachments tuned for PvP + zombies.</p>
             <small>Signature kits include the Pulse Rifle, Rail Cleaver, and Resonant Shotgun.</small>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/02</p>
             <h3>Cross-Platform Netcode</h3>
             <p>Epic Online Services stack for matchmaking, lobbies, friends, and future cross-save.</p>
             <small>Supports private + public playlists.</small>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/03</p>
             <h3>Glitch Narrative</h3>
             <p>Collect encrypted broadcasts mid-match to unlock lore drops, skins, and alt endings.</p>
             <small>Seasonal rituals reveal how the new zombie outbreak ripples across stylized ruins.</small>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/04</p>
             <h3>Dynamic Difficulty</h3>
             <p>Adaptive director modulates spawn rates, boss buffs, and reward multipliers.</p>
             <small>Great for squads of varying skill levels.</small>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/05</p>
             <h3>Progression and XP</h3>
             <p>Player progression system and XP that unlocks new maps, characters, and stylized cosmetics.</p>
             <small>Seasonal ranks keep veterans pushing deeper into the zombie meta.</small>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Sys/06</p>
             <h3>Zombie Drops</h3>
             <p>Zombie drops shower squads with Nukes, Air-Strikes, Double Points, and temporary invincibility moments.</p>
             <small>Momentum swings ensure each zombies game feels like a new broadcast.</small>
@@ -329,40 +371,47 @@
         </div>
       </div>
     </section>
+
     <section id="audience" class="section systems">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Who is Deadwave for?</p>
-          <h2>A Zombie Game for Everyone</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/04 — Who is Deadwave for?</p>
+          <h2>A zombie game for <em>everyone</em></h2>
         </div>
-        <div class="system-grid">
+        <div class="system-grid cols-2">
           <article class="system-card" data-reveal>
+            <p class="card-index">Aud/01</p>
             <h3>Arcade Fans</h3>
             <p>If you love fast-paced arcade shooters, Deadwave delivers round-based zombie waves, nuke power-ups, and quick-respawn PvP that feel right at home alongside classic arcade zombie games.</p>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Aud/02</p>
             <h3>Kids &amp; Young Players</h3>
             <p>Deadwave's stylized, cartoon-inspired visuals keep zombie action exciting without graphic gore — a fun co-op zombie game for kids ages 10+ who enjoy online multiplayer adventures with friends.</p>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Aud/03</p>
             <h3>Co-op &amp; Multiplayer Teams</h3>
             <p>Squad up with 1–4 friends in co-op zombie survival or jump into 12-player PvP lobbies. Deadwave's co-op zombie game mode features shared life pools and team revives built for group play.</p>
           </article>
           <article class="system-card" data-reveal>
+            <p class="card-index">Aud/04</p>
             <h3>Competitive PvP Players</h3>
             <p>Team Deathmatch, Capture the Flag, and Prop Hunt deliver skill-based multiplayer zombie showdowns with seasonal ranks and cross-platform matchmaking via Epic Online Services.</p>
           </article>
         </div>
       </div>
     </section>
+
     <section id="modes" class="section projects">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Versus & co-op playlists</p>
-          <h2>Modes in rotation</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/05 — Versus &amp; co-op playlists</p>
+          <h2>Modes in <em>rotation</em></h2>
         </div>
-        <div class="projects-grid">
+        <div class="system-grid cols-2">
           <article class="project-card" data-reveal>
+            <p class="card-index">Mode/01</p>
             <h3>Team Deathmatch</h3>
             <p>Classic 6v6 heat with sliding, mantling, and radar blackout events.</p>
             <div class="project-tags">
@@ -371,6 +420,7 @@
             </div>
           </article>
           <article class="project-card" data-reveal>
+            <p class="card-index">Mode/02</p>
             <h3>Capture the Flag</h3>
             <p>Symmetric maps featuring phase gates and firewall traps.</p>
             <div class="project-tags">
@@ -379,14 +429,16 @@
             </div>
           </article>
           <article class="project-card" data-reveal>
+            <p class="card-index">Mode/03</p>
             <h3>Prop Hunt</h3>
             <p>Asymmetric stealth with glitch props, audio baits, and scan pulses.</p>
             <div class="project-tags">
               <span>Party</span>
-              <span>Hide & seek</span>
+              <span>Hide &amp; seek</span>
             </div>
           </article>
           <article class="project-card" data-reveal>
+            <p class="card-index">Mode/04</p>
             <h3>Zombie Survival</h3>
             <p>Co-op gauntlet detailed above. Supports 1-4 survivors.</p>
             <div class="project-tags">
@@ -400,34 +452,34 @@
 
     <section id="gallery" class="section media">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Screens & captures</p>
-          <h2>Field recordings</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/06 — Screens &amp; captures</p>
+          <h2>Field <em>recordings</em></h2>
         </div>
         <div class="gallery-grid">
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-temple-arena-map.png" alt="Deadwave temple arena map - arcade zombie game">
-            <figcaption>Temple Arena // Ritual corridors</figcaption>
+            <img src="images/presskit/vlcsnap-2026-05-16-13h35m37s578.png" alt="Deadwave boss encounter - glowing green demon boss on the night road, arcade zombie game" loading="lazy">
+            <figcaption>Boss ritual // Every 5th wave</figcaption>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-viking-ruins-map.png" alt="Deadwave viking ruins map - zombie survival arena">
-            <figcaption>Viking Ruins // Ember fog</figcaption>
+            <img src="images/presskit/vlcsnap-2026-05-09-09h46m05s601.png" alt="Deadwave invincibility powerup - glowing survivor firing through the rainy graveyard, zombie survival PC" loading="lazy">
+            <figcaption>Powerup // Invincibility surge</figcaption>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-viking-village-showdown-map.png" alt="Deadwave viking village showdown - co-op zombie game">
-            <figcaption>Village Showdown // Control point</figcaption>
+            <img src="images/presskit/vlcsnap-2026-02-25-13h56m29s707.png" alt="Deadwave temple arena - daylight firefight with mummies, co-op zombie game" loading="lazy">
+            <figcaption>Temple arena // Daylight patrol</figcaption>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-lobby-loadout-screen.png" alt="Deadwave lobby and loadout screen - multiplayer zombie game">
-            <figcaption>Lobby // Loadout alignment</figcaption>
+            <img src="images/presskit/vlcsnap-2026-02-25-13h50m27s229.png" alt="Deadwave sniper scope view - zombie with glowing green eyes in the crosshair, zombie shooter PC" loading="lazy">
+            <figcaption>Scoped // Eyes of the horde</figcaption>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-zombie-powerups-nukes.png" alt="Deadwave zombie powerups - nukes vaccines and air strikes">
-            <figcaption>Powerups // Vaccines + Nukes</figcaption>
+            <img src="images/presskit/vlcsnap-2026-02-25-13h42m45s915.png" alt="Deadwave neon corridor - mummies advancing through the undercity, multiplayer zombie game" loading="lazy">
+            <figcaption>Neon corridor // Undercity sweep</figcaption>
           </figure>
           <figure class="gallery-card" data-reveal>
-            <img src="images/deadwave-capture-the-flag-map.png" alt="Deadwave capture the flag map - PvP zombie shooter PC">
-            <figcaption>Capture the Flag // Firewall traps</figcaption>
+            <img src="images/presskit/vlcsnap-2026-02-22-01h00m05s845.png" alt="Deadwave ancient ruins - horde of glowing skeletons swarming the survivor, zombie survival game" loading="lazy">
+            <figcaption>Ancient ruins // Horde swell</figcaption>
           </figure>
         </div>
       </div>
@@ -435,49 +487,51 @@
 
     <section id="steam" class="section steam-showcase">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Available on Steam</p>
-          <h2>Wishlist Deadwave Now</h2>
-          <p>Add Deadwave to your Steam library and be the first to drop into the signal when Early Access launches.</p>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/07 — Available on Steam</p>
+          <h2>Wishlist Deadwave <em>now</em></h2>
+          <p class="sec-sub">Add Deadwave to your Steam library and be the first to drop into the signal when Early Access launches.</p>
         </div>
-        <div class="steam-embed-wrapper" data-reveal>
-          <iframe src="https://store.steampowered.com/widget/4347680/" frameborder="0" width="646" height="190" loading="lazy" title="Deadwave on Steam"></iframe>
-        </div>
-        <div class="steam-cta-row" data-reveal>
-          <a class="btn steam" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">
-            <svg class="steam-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49c.06 0 .11 0 .17.01l2.4-3.47v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.44c0 .04.01.08.01.13a2.84 2.84 0 0 1-5.66.29L2.2 14.49A10 10 0 1 0 12 2zm-5.92 14.64l-1.72-.71a2.13 2.13 0 0 0 3.86.6 2.13 2.13 0 0 0-1.03-2.82l1.78.74a1.57 1.57 0 1 1-2.89 2.19zm9.68-5.39a2.52 2.52 0 1 0-2.52-2.52 2.52 2.52 0 0 0 2.52 2.52z"/></svg>
-            Visit Steam Page
-          </a>
+        <div class="steam-panel" data-reveal>
+          <div class="steam-embed-wrapper">
+            <iframe src="https://store.steampowered.com/widget/4347680/" frameborder="0" width="646" height="190" loading="lazy" title="Deadwave on Steam"></iframe>
+          </div>
+          <div class="steam-cta-row">
+            <a class="btn steam" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">
+              <svg class="steam-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49c.06 0 .11 0 .17.01l2.4-3.47v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.44c0 .04.01.08.01.13a2.84 2.84 0 0 1-5.66.29L2.2 14.49A10 10 0 1 0 12 2zm-5.92 14.64l-1.72-.71a2.13 2.13 0 0 0 3.86.6 2.13 2.13 0 0 0-1.03-2.82l1.78.74a1.57 1.57 0 1 1-2.89 2.19zm9.68-5.39a2.52 2.52 0 1 0-2.52-2.52 2.52 2.52 0 0 0 2.52 2.52z"/></svg>
+              <span>Visit Steam Page</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section about">
+    <section id="faq" class="section">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Questions &amp; answers</p>
-          <h2>Deadwave FAQ</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/08 — Questions &amp; answers</p>
+          <h2>Deadwave <em>FAQ</em></h2>
         </div>
-        <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;" data-reveal>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">What type of zombie game is Deadwave?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Deadwave is a fast-paced arcade zombie game for PC combining round-based co-op zombie survival, competitive PvP modes (Team Deathmatch, Capture the Flag, Prop Hunt), and stylized zombie waves — built in Unreal Engine 5 by Firewall Games.</p>
+        <div class="faq-list" data-reveal>
+          <details>
+            <summary><span class="q-index">Q/01</span>What type of zombie game is Deadwave?</summary>
+            <p>Deadwave is a fast-paced arcade zombie game for PC combining round-based co-op zombie survival, competitive PvP modes (Team Deathmatch, Capture the Flag, Prop Hunt), and stylized zombie waves — built in Unreal Engine 5 by Firewall Games.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Is Deadwave a good zombie game for kids?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Yes. Deadwave uses stylized, cartoon-inspired zombie visuals without realistic gore, making it a family-friendly zombie game for kids ages 10 and up. The arcade-style gameplay is easy to pick up and fun to play co-op with parents or friends.</p>
+          <details>
+            <summary><span class="q-index">Q/02</span>Is Deadwave a good zombie game for kids?</summary>
+            <p>Yes. Deadwave uses stylized, cartoon-inspired zombie visuals without realistic gore, making it a family-friendly zombie game for kids ages 10 and up. The arcade-style gameplay is easy to pick up and fun to play co-op with parents or friends.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Is Deadwave a multiplayer zombie game?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Yes. Deadwave is a multiplayer zombie game for PC supporting up to 12 players in PvP lobbies and 1–4 players in co-op zombie survival, powered by Epic Online Services for cross-platform matchmaking.</p>
+          <details>
+            <summary><span class="q-index">Q/03</span>Is Deadwave a multiplayer zombie game?</summary>
+            <p>Yes. Deadwave is a multiplayer zombie game for PC supporting up to 12 players in PvP lobbies and 1–4 players in co-op zombie survival, powered by Epic Online Services for cross-platform matchmaking.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Does Deadwave have a co-op mode?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Yes. Deadwave's co-op zombie survival mode pits 1–4 players against 20 escalating rounds of zombie waves with boss encounters every 5th round, shared life pools, team revives, and arcade-style power pickups including Nukes and Air-Strikes.</p>
+          <details>
+            <summary><span class="q-index">Q/04</span>Does Deadwave have a co-op mode?</summary>
+            <p>Yes. Deadwave's co-op zombie survival mode pits 1–4 players against 20 escalating rounds of zombie waves with boss encounters every 5th round, shared life pools, team revives, and arcade-style power pickups including Nukes and Air-Strikes.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Where can I play Deadwave?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Deadwave is available on PC via Steam. Wishlist it at <a href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">store.steampowered.com</a> to be notified when Early Access goes live.</p>
+          <details>
+            <summary><span class="q-index">Q/05</span>Where can I play Deadwave?</summary>
+            <p>Deadwave is available on PC via Steam. Wishlist it at <a href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">store.steampowered.com</a> to be notified when Early Access goes live.</p>
           </details>
         </div>
       </div>
@@ -485,10 +539,10 @@
 
     <section id="newsletter" class="section contact detail-cta">
       <div class="container contact-grid">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Launch intel</p>
-          <h2>Sign up for Deadwave updates</h2>
-          <p>Get notified about launch, open beta waves, and major zombie mode updates.</p>
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/09 — Launch intel</p>
+          <h2>Sign up for Deadwave <em>updates</em></h2>
+          <p class="sec-sub">Get notified about launch, open beta waves, and major zombie mode updates.</p>
         </div>
         <div data-reveal>
           <form
@@ -555,18 +609,18 @@
                   I Agree to the Privacy Policy
                 </label>
                 <p class="fs-description" id="privacy-policy-agreement-description">
-                  I have read and agree to the Privacy Policy.
+                  I have read and agree to the <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a>.
                 </p>
               </div>
             </div>
             <div class="fs-button-group">
-              <button class="fs-button btn primary" type="submit">Subscribe</button>
+              <button class="fs-button btn primary" type="submit"><span>Subscribe</span></button>
             </div>
             <p class="privacy-note">
               <small>
-                By submitting this form you agree to receive Deadwave updates by email. 
+                By submitting this form you agree to receive Deadwave updates by email.
                 This form is powered by Formspree and follows their
-                <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>. 
+                <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.
                 Your data may be stored and processed for communication purposes in line with GDPR and similar data protection laws.
               </small>
             </p>
@@ -577,11 +631,11 @@
     </section>
 
     <section id="contact" class="section contact detail-cta">
-      <div class="container contact-grid">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Briefing requests</p>
-          <h2>Want Deadwave intel?</h2>
-          <p>Press, streamers, and collaborators can reach out for codes, kits, or interviews.</p>
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="sig">DW/10 — Briefing requests</p>
+          <h2>Want Deadwave <em>intel?</em></h2>
+          <p class="sec-sub">Press, streamers, and collaborators can reach out for codes, kits, or interviews.</p>
         </div>
         <ul class="contact-list" data-reveal>
           <li>
@@ -627,13 +681,21 @@
   </div>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark footer-logo-mark">
-        <span>Firewall Games</span>
+    <div class="container">
+      <p class="footer-word" aria-hidden="true">Deadwave</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="footer-logo-mark">
+          <span>Firewall Games</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Studio</a>
+          <a href="presskit.html">Press Kit</a>
+          <a href="privacy-policy.html">Privacy</a>
+        </nav>
+        <p>&copy; <span id="current-year"></span> Firewall Games. Deadwave is a trademark of Firewall Development.</p>
+        <p class="footer-note">Built with static HTML/CSS/JS for GitHub Pages.</p>
       </div>
-      <p>&copy; <span id="current-year"></span> Firewall Games. Deadwave is a trademark of Firewall Development.</p>
-      <p class="footer-note">Built with static HTML/CSS/JS for GitHub Pages.</p>
     </div>
   </footer>
   <script src="js/script.js" defer></script>

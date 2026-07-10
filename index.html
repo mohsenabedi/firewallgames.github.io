@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
   <title>Firewall Games | Arcade Zombie Game &amp; Co-op Multiplayer Shooter for PC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Firewall Games | Arcade Zombie Game &amp; Multiplayer Co-op Shooter for PC">
   <meta property="og:description" content="Discover Deadwave and more stylized arcade zombie games from Firewall Games — fast-paced co-op zombie survival and PvP multiplayer for PC, perfect for kids and zombie fans.">
@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="ai-instructions" type="text/markdown" href="https://firewallgames.dev/llms.txt">
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
     "name": "Firewall Games",
     "url": "https://firewallgames.dev/",
     "logo": "https://firewallgames.dev/images/firewallgames-mascot-white-small.png",
@@ -86,20 +89,20 @@
   </script>
 </head>
 <body>
-  <!--
-    INSTRUCTIONS FOR EDITING CONTENT
-    1. Studio name + tagline: update the text inside the hero <h1> and <p class="tagline">.
-    2. Studio bio + pillars: edit the paragraph and list within the #about section marked with [EDIT THIS BIO] placeholders.
-    3. Featured project: change the copy inside the Deadwave card under #featured. The link to Deadwave.html lives on the <a> button near the bottom.
-    4. Other projects: duplicate or remove .project-card blocks inside the #projects grid (see HTML comments there for a quick template reminder).
-    5. News posts + contact links: swap the placeholder entries in #news and #contact with your actual updates and URLs.
-  -->
+  <!-- boot / signal-lock preloader -->
+  <div class="boot" aria-hidden="true">
+    <p class="boot-label">Tuning 87.9 MHz</p>
+    <div class="boot-bar"></div>
+  </div>
+
+  <!-- CRT texture overlay -->
+  <div class="crt" aria-hidden="true"><div class="crt-noise"></div></div>
 
   <header class="site-header">
     <div class="container nav-wrapper">
       <a href="#hero" class="logo" data-scroll>
         <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark">
-        <span>Firewall Games</span>
+        <span>Firewall<b>&nbsp;Games</b></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
@@ -107,14 +110,14 @@
         <span></span>
       </button>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#hero" data-scroll>Home</a>
-        <a href="#featured" data-scroll>Featured</a>
+        <a href="#featured" data-scroll>Deadwave</a>
         <a href="#about" data-scroll>Studio</a>
-        <a href="#projects" data-scroll>Projects</a>
-        <a href="#news" data-scroll>News</a>
+        <a href="#projects" data-scroll>Archive</a>
+        <a href="#news" data-scroll>Log</a>
         <a href="#faq" data-scroll>FAQ</a>
         <a href="#contact" data-scroll>Contact</a>
         <a href="privacy-policy.html">Privacy</a>
+        <a class="nav-cta" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">Wishlist</a>
       </nav>
     </div>
   </header>
@@ -122,50 +125,63 @@
   <main>
     <section id="hero" class="hero">
       <div class="hero-background" aria-hidden="true">
+        <div class="hero-photo" style="background-image:url('images/background.jpg');"></div>
         <div class="hero-grid"></div>
-        <div class="hero-orb orb-one"></div>
-        <div class="hero-orb orb-two"></div>
-        <div class="hero-noise"></div>
+        <div class="hero-scan"></div>
       </div>
       <div class="container hero-inner">
-        <p class="microcopy">Signal: indie studio broadcast</p>
-        <div class="hero-main">
-          <div class="hero-main-left">
-            <img src="images/firewallgameslogo-cyberpunk-medium.png" alt="Firewall Games logo" class="hero-logo-main">
-          </div>
-          <div class="hero-main-right">
-            <h1 class="hero-title">
-              <span class="glitch-title" data-glitch="Firewall">Firewall</span>
-              <span class="glitch-title" data-glitch="Games">Games</span>
-            </h1>
-            <p class="tagline">Indie team crafting arcade zombie games, fast-paced multiplayer co-op, and stylized zombie survival for PC players of all skill levels.</p>
-            <div class="cta-group">
-              <a href="#projects" class="btn primary" data-scroll>Explore Projects</a>
-              <a href="#contact" class="btn ghost" data-scroll>Contact</a>
-            </div>
-          </div>
+        <p class="microcopy">Pirate broadcast // indie studio // est. 2023</p>
+        <h1 class="hero-title">
+          <span class="row"><span class="glitch hollow" data-glitch="Firewall">Firewall</span></span>
+          <span class="row"><span class="glitch lit" data-glitch="Games">Games</span></span>
+        </h1>
+        <p class="tagline">Indie team crafting arcade zombie games, fast-paced multiplayer co-op, and stylized zombie survival for PC players of all skill levels.</p>
+        <div class="cta-group">
+          <a href="deadwave.html" class="btn primary"><span>Enter Deadwave</span></a>
+          <a href="#about" class="btn" data-scroll><span>Decode the Studio</span></a>
         </div>
-        <div class="scroll-indicator" aria-hidden="true">
-          <span>Scroll to enter</span>
-          <svg viewBox="0 0 24 24" role="presentation" focusable="false">
-            <path d="M12 5v14m0 0l-5-5m5 5l5-5"/>
-          </svg>
+      </div>
+      <div class="hero-meta" aria-hidden="true">
+        <div class="hero-meta-inner">
+          <span class="live">On air</span>
+          <span>Freq 87.9 MHz</span>
+          <span>Unreal Engine 5</span>
+          <span>Scroll to enter ↓</span>
         </div>
       </div>
     </section>
 
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Deadwave — free demo live on Steam</span>
+        <span>Full game $14.99</span>
+        <span>Releasing June 2026</span>
+        <span>Co-op survival 1–4</span>
+        <span>PvP lobbies up to 12</span>
+        <span>Built in Unreal Engine 5</span>
+      </div>
+    </div>
+
     <section id="featured" class="section featured">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Current signal</p>
-          <h2>Featured Project</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/01 — Current transmission</p>
+          <h2>Flagship <em>signal</em></h2>
         </div>
-        <article class="project-card featured-card" data-reveal>
-          <div>
-            <p class="microcopy">Deadwave // flagship</p>
-            <h3>Deadwave</h3>
+        <article class="featured-panel" data-reveal>
+          <div class="featured-media">
+            <img src="images/presskit/vlcsnap-2026-05-19-11h23m43s628.png" alt="Deadwave gameplay — infected survivor fighting skeletons in the graveyard, arcade zombie game by Firewall Games" loading="lazy">
+            <span class="cap">Field capture // infection bloom</span>
+          </div>
+          <div class="featured-body">
+            <p class="microcopy">Deadwave // first solo game</p>
+            <h3>Dead<em>wave</em></h3>
             <p class="project-summary">Deadwave is Firewall Games' flagship arcade zombie game for PC — corrupted radio ghosts flood neon ruins, every broadcast spawns a fresh horde, and squads fight through escalating co-op zombie survival rounds or jump into competitive PvP modes.</p>
-            <p class="project-genre">Arcade zombie game // PvP &amp; co-op survival // Unreal Engine 5 // PC</p>
+            <div class="spec-strip">
+              <div><span class="k">Players</span><span class="v">1–12</span></div>
+              <div><span class="k">Price</span><span class="v">$14.99</span></div>
+              <div><span class="k">Release</span><span class="v">Jun 2026</span></div>
+            </div>
             <div class="project-tags">
               <span>Arcade zombie game</span>
               <span>Multiplayer co-op</span>
@@ -173,16 +189,16 @@
               <span>Unreal Engine 5</span>
               <span>PC</span>
             </div>
-          </div>
-          <div class="steam-embed-wrapper featured-steam-embed">
-            <iframe src="https://store.steampowered.com/widget/4347680/" frameborder="0" width="646" height="190" loading="lazy" title="Deadwave on Steam"></iframe>
-          </div>
-          <div class="featured-cta-group">
-            <a class="btn steam" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">
-              <svg class="steam-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49c.06 0 .11 0 .17.01l2.4-3.47v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.44c0 .04.01.08.01.13a2.84 2.84 0 0 1-5.66.29L2.2 14.49A10 10 0 1 0 12 2zm-5.92 14.64l-1.72-.71a2.13 2.13 0 0 0 3.86.6 2.13 2.13 0 0 0-1.03-2.82l1.78.74a1.57 1.57 0 1 1-2.89 2.19zm9.68-5.39a2.52 2.52 0 1 0-2.52-2.52 2.52 2.52 0 0 0 2.52 2.52z"/></svg>
-              Wishlist on Steam
-            </a>
-            <a class="btn secondary" href="deadwave.html">View Deadwave</a>
+            <div class="steam-embed-wrapper">
+              <iframe src="https://store.steampowered.com/widget/4347680/" frameborder="0" width="646" height="190" loading="lazy" title="Deadwave on Steam"></iframe>
+            </div>
+            <div class="cta-group" style="margin-top:0;">
+              <a class="btn steam" href="https://store.steampowered.com/app/4347680/DEADWAVE/" target="_blank" rel="noopener noreferrer">
+                <svg class="steam-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49c.06 0 .11 0 .17.01l2.4-3.47v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.41 2.44c0 .04.01.08.01.13a2.84 2.84 0 0 1-5.66.29L2.2 14.49A10 10 0 1 0 12 2zm-5.92 14.64l-1.72-.71a2.13 2.13 0 0 0 3.86.6 2.13 2.13 0 0 0-1.03-2.82l1.78.74a1.57 1.57 0 1 1-2.89 2.19zm9.68-5.39a2.52 2.52 0 1 0-2.52-2.52 2.52 2.52 0 0 0 2.52 2.52z"/></svg>
+                <span>Wishlist on Steam</span>
+              </a>
+              <a class="btn" href="deadwave.html"><span>Full briefing</span></a>
+            </div>
           </div>
         </article>
       </div>
@@ -190,23 +206,33 @@
 
     <section id="about" class="section about">
       <div class="container about-grid">
-        <div class="about-copy" data-reveal>
-          <p class="eyebrow">Studio bio</p>
-          <h2>Firewall Games creates arcade zombie games and stylized Unreal Engine 5 co-op experiences.</h2>
-          <p>Firewall Games is a micro-studio specializing in arcade zombie games and fast-paced multiplayer co-op for PC — weaving synthwave atmospheres, stylized horror, and improvisational mechanics into zombie survival adventures kids and adults can stream, speedrun, and conquer together.</p>
-          <ul>
-            <li>Stylized, cartoon-inspired zombie aesthetics — exciting fast-paced action without graphic gore, great for kids and teens.</li>
-            <li>Arcade-style mechanics tuned for co-op zombie survival and competitive PvP multiplayer.</li>
-            <li>Multiplayer-first design: co-op zombie survival for 1–4 players and PvP lobbies up to 12.</li>
-            <li>Signal-bent art direction rooted in Unreal Engine 5 pipelines.</li>
+        <div class="about-copy">
+          <div class="sec-head" data-reveal>
+            <p class="sig">Sig/02 — Studio dossier</p>
+            <h2>We keep the dead <em>on air</em></h2>
+          </div>
+          <p data-reveal>Firewall Games is a micro-studio specializing in arcade zombie games and fast-paced multiplayer co-op for PC — weaving synthwave atmospheres, stylized horror, and improvisational mechanics into zombie survival adventures kids and adults can stream, speedrun, and conquer together.</p>
+          <ul class="manifest" data-reveal>
+            <li><span><strong>Stylized, cartoon-inspired zombie aesthetics</strong> — exciting fast-paced action without graphic gore, great for kids and teens.</span></li>
+            <li><span><strong>Arcade-style mechanics</strong> tuned for co-op zombie survival and competitive PvP multiplayer.</span></li>
+            <li><span><strong>Multiplayer-first design:</strong> co-op zombie survival for 1–4 players and PvP lobbies up to 12.</span></li>
+            <li><span><strong>Signal-bent art direction</strong> rooted in Unreal Engine 5 pipelines.</span></li>
           </ul>
         </div>
-        <div class="about-visual" data-reveal>
-          <div class="frame">
-            <span class="pulse-dot"></span>
-            <span class="pulse-dot"></span>
-            <div class="waveform" aria-hidden="true"></div>
-            <p>Firewall Protocol v1.3</p>
+        <div class="console" data-reveal aria-hidden="true">
+          <div class="console-head">
+            <span>Firewall Protocol v1.3</span>
+            <span class="dot">● rec</span>
+          </div>
+          <div class="eq">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="console-rows">
+            <p><span>Studio class</span><b>Micro / indie</b></p>
+            <p><span>Engine</span><b>Unreal Engine 5</b></p>
+            <p><span>Netcode</span><b>Epic Online Services</b></p>
+            <p><span>Gore level</span><b>Stylized — none</b></p>
+            <p><span>Audience</span><b>Ages 10+ &amp; up</b></p>
           </div>
         </div>
       </div>
@@ -214,13 +240,13 @@
 
     <section id="projects" class="section projects">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Other signals</p>
-          <h2>Projects Archive</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/03 — Intercepted frequencies</p>
+          <h2>Projects <em>archive</em></h2>
         </div>
-        <!-- PROJECT CARD TEMPLATE: duplicate a .project-card element, update title/description/link, and replace the href="#" placeholder with the real URL. -->
         <div class="projects-grid">
-          <article class="project-card" data-reveal>
+          <article class="project-card redacted" data-reveal>
+            <p class="card-index">File 002 // Redacted</p>
             <h3>Secret Project</h3>
             <p>Stylized simulation game in Unreal Engine 5, coming next for strategy fans.</p>
             <div class="project-tags">
@@ -229,6 +255,7 @@
             </div>
           </article>
           <article class="project-card" data-reveal>
+            <p class="card-index">File 003 // Prototype</p>
             <h3>Toon Tanks</h3>
             <p>Cartoon tank battler exploring new family-friendly game loops.</p>
             <div class="project-tags">
@@ -242,59 +269,65 @@
 
     <section id="news" class="section news">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Signals from the firewall</p>
-          <h2>News & Devlog Teasers</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/04 — Transmission log</p>
+          <h2>News &amp; devlog <em>teasers</em></h2>
         </div>
         <div class="news-list">
           <article class="news-item" data-reveal>
             <p class="news-date">[01.11.2025]</p>
-            <h3>Getting Ready to Publish Early Access</h3>
-            <p>We are polishing Deadwave's Unreal Engine 5 zombies mode before the new game hits early access.</p>
+            <div>
+              <h3>Getting Ready to Publish Early Access</h3>
+              <p>We are polishing Deadwave's Unreal Engine 5 zombies mode before the new game hits early access.</p>
+            </div>
           </article>
           <article class="news-item" data-reveal>
             <p class="news-date">[01.03.2025]</p>
-            <h3>Deadwave enters full production</h3>
-            <p>Deadwave is deep in production, refining PvP firefights, co-op survival, and stylized zombie bosses.</p>
+            <div>
+              <h3>Deadwave enters full production</h3>
+              <p>Deadwave is deep in production, refining PvP firefights, co-op survival, and stylized zombie bosses.</p>
+            </div>
           </article>
           <article class="news-item" data-reveal>
             <p class="news-date">[01.03.2023]</p>
-            <h3>Hello, World</h3>
-            <p>Firewall Games was founded to build new indie games packed with synthwave vibes.</p>
+            <div>
+              <h3>Hello, World</h3>
+              <p>Firewall Games was founded to build new indie games packed with synthwave vibes.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section about">
+    <section id="faq" class="section">
       <div class="container">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Common questions</p>
-          <h2>FAQ – Zombie Games &amp; Firewall Games</h2>
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/05 — Decoded questions</p>
+          <h2>FAQ — zombie games &amp; <em>Firewall Games</em></h2>
         </div>
-        <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;" data-reveal>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">What kind of zombie games does Firewall Games make?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Firewall Games specializes in arcade zombie games and fast-paced online multiplayer PC shooters. Their flagship title, Deadwave, is a stylized co-op zombie survival game with PvP modes, round-based zombie waves, and arcade-style power pickups — built in Unreal Engine 5.</p>
+        <div class="faq-list" data-reveal>
+          <details>
+            <summary><span class="q-index">Q/01</span>What kind of zombie games does Firewall Games make?</summary>
+            <p>Firewall Games specializes in arcade zombie games and fast-paced online multiplayer PC shooters. Their flagship title, Deadwave, is a stylized co-op zombie survival game with PvP modes, round-based zombie waves, and arcade-style power pickups — built in Unreal Engine 5.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Are the zombie games good for kids?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Yes. Firewall Games uses stylized, cartoon-inspired zombie visuals rather than realistic gore, making their games a great pick for kids and teens who love fast-paced co-op zombie shooters and arcade-style action with friends.</p>
+          <details>
+            <summary><span class="q-index">Q/02</span>Are the zombie games good for kids?</summary>
+            <p>Yes. Firewall Games uses stylized, cartoon-inspired zombie visuals rather than realistic gore, making their games a great pick for kids and teens who love fast-paced co-op zombie shooters and arcade-style action with friends.</p>
           </details>
-          <details style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.2rem 1.5rem;">
-            <summary style="cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;">Is Deadwave a multiplayer zombie game?</summary>
-            <p style="margin-top:0.75rem;opacity:0.85;">Yes. Deadwave is a multiplayer zombie game for PC supporting up to 12 players in PvP lobbies and 1–4 players in co-op zombie survival mode, with cross-platform matchmaking powered by Epic Online Services.</p>
+          <details>
+            <summary><span class="q-index">Q/03</span>Is Deadwave a multiplayer zombie game?</summary>
+            <p>Yes. Deadwave is a multiplayer zombie game for PC supporting up to 12 players in PvP lobbies and 1–4 players in co-op zombie survival mode, with cross-platform matchmaking powered by Epic Online Services.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="newsletter" class="section contact detail-cta newsletter-index">
+    <section id="newsletter" class="section contact">
       <div class="container contact-grid">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Studio intel</p>
-          <h2>Sign up for Firewall Games updates</h2>
-          <p>Studio news, launch beats, and early access playtest invites.</p>
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/06 — Open channel</p>
+          <h2>Sign up for <em>updates</em></h2>
+          <p class="sec-sub">Studio news, launch beats, and early access playtest invites — straight from the broadcast tower.</p>
         </div>
         <div data-reveal>
           <form
@@ -361,12 +394,12 @@
                   I Agree to the Privacy Policy
                 </label>
                 <p class="fs-description" id="privacy-policy-agreement-description-index">
-                  I have read and agree to the Privacy Policy.
+                  I have read and agree to the <a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a>.
                 </p>
               </div>
             </div>
             <div class="fs-button-group">
-              <button class="fs-button btn primary" type="submit">Subscribe</button>
+              <button class="fs-button btn primary" type="submit"><span>Subscribe</span></button>
             </div>
             <p class="privacy-note">
               <small>
@@ -383,11 +416,11 @@
     </section>
 
     <section id="contact" class="section contact">
-      <div class="container contact-grid">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Contact</p>
-          <h2>Connect with Firewall Games</h2>
-          <p>Quick links for press, collaborators, and curious wanderers.</p>
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <p class="sig">Sig/07 — Direct line</p>
+          <h2>Connect with <em>Firewall Games</em></h2>
+          <p class="sec-sub">Quick links for press, collaborators, and curious wanderers.</p>
         </div>
         <ul class="contact-list" data-reveal>
           <li>
@@ -426,12 +459,20 @@
   </div>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="logo-mark footer-logo-mark">
-        <span>Firewall Games</span>
+    <div class="container">
+      <p class="footer-word" aria-hidden="true">Firewall</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/firewallgames-mascot-white-small.png" alt="Firewall Games logo" class="footer-logo-mark">
+          <span>Firewall Games</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="deadwave.html">Deadwave</a>
+          <a href="presskit.html">Press Kit</a>
+          <a href="privacy-policy.html">Privacy</a>
+        </nav>
+        <p>&copy; <span id="current-year"></span> Firewall Games. All rights reserved.</p>
       </div>
-      <p>&copy; <span id="current-year"></span> Firewall Games. All rights reserved.</p>
     </div>
   </footer>
 
