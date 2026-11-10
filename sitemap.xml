@@ -3,28 +3,42 @@
 
   <url>
     <loc>https://firewallgames.dev/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://firewallgames.dev/deadwave.html</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://firewallgames.dev/internet-please.html</loc>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
+    <loc>https://firewallgames.dev/deadwave.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://firewallgames.dev/presskit.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
     <loc>https://firewallgames.dev/privacy-policy.html</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://firewallgames.dev/llms.txt</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
