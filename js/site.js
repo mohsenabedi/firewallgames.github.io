@@ -137,8 +137,8 @@
         rush.style.setProperty('--q', q.toFixed(3));
         rush.classList.toggle('night', q >= 0.5);
         var hours = 8 + p * 13;
-        hour.setAttribute('transform', 'rotate(' + (hours % 12) * 30 + ' 50 50)');
-        min.setAttribute('transform', 'rotate(' + (hours % 1) * 360 + ' 50 50)');
+        hour.style.transform = 'rotate(' + ((hours % 12) * 30).toFixed(2) + 'deg)';
+        min.style.transform = 'rotate(' + ((hours % 1) * 360).toFixed(2) + 'deg)';
         sky.setAttribute('style', 'fill:' + (p < 0.66 ? 'var(--line-marigold)' : 'var(--line-plum)'));
         var hdr = document.querySelector('[data-hdr]');
         if (hdr) {
@@ -207,40 +207,63 @@
   });
 
   // ---------- footer: a cable from the page to a happy home ----------
+  // The SVG is drawn 1:1 in CSS pixels and rebuilt on resize, so nothing is
+  // cropped at wide or narrow widths (a fixed viewBox with "slice" cut off the
+  // lower run, the house and the packets on wide screens).
   function footerCable(host) {
-    var svg = el('svg', { viewBox: '0 0 1200 150', preserveAspectRatio: 'xMaxYMid slice' }, host);
-    var d = 'M-40 70 H760 Q800 70 800 100 V104 Q800 116 812 116 H1040';
-    el('path', { d: d, class: 'b-cable-shadow', transform: 'translate(2 3)' }, svg);
-    el('path', { d: d, class: 'b-cable-edge' }, svg);
-    el('path', { d: d, class: 'b-cable-body' }, svg);
-    el('path', { d: d, class: 'b-cable-core' }, svg);
-    var path = el('path', { d: d, fill: 'none' }, svg);
+    var H = 150;
+    var svg = el('svg', { preserveAspectRatio: 'xMinYMin meet' }, host);
+    var shapes = el('g', {}, svg);
     var pk = el('g', {}, svg);
-    el('path', { d: d, class: 'b-cable-hi', transform: 'translate(-3 -6)' }, svg);
-    el('image', { href: ART + 'buildings/house-normal-very-happy-day.svg', 'data-themed': '', x: 1010, y: 52, width: 100, height: 100 }, svg);
-    applyThemeArt();
-    if (reduce || !path.getTotalLength) return;
-    var L = path.getTotalLength();
-    var items = [];
-    for (var i = 0; i < 7; i++) {
-      var img = el('image', { href: ART + 'packets/packet-' + PACKETS[(i * 5) % 16][0] + '-day.svg', 'data-themed': '', width: 30, height: 18 }, pk);
-      items.push({ n: img, o: i / 7 });
-    }
-    applyThemeArt();
+    var top = el('g', {}, svg);
+    var path = null, L = 0, items = [], W = 0, t0 = performance.now();
+    var place = function (now) {
+      if (!L) return;
+      var k = (now - t0) * 0.15 / L; // ~150 px per second at any width
+      items.forEach(function (it) {
+        var u = (k + it.o) % 1;
+        var pt = path.getPointAtLength(u * L);
+        it.n.setAttribute('x', (pt.x - 15).toFixed(1));
+        it.n.setAttribute('y', (pt.y - 9).toFixed(1));
+        it.n.setAttribute('opacity', u > 0.97 ? ((1 - u) / 0.03).toFixed(2) : 1);
+      });
+    };
+    var build = function () {
+      var w = Math.round(host.clientWidth);
+      if (!w || w === W) return;
+      W = w;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      shapes.textContent = ''; pk.textContent = ''; top.textContent = '';
+      var house = W - 190;
+      var drop = Math.max(Math.round(W * 0.4), W - 400);
+      var d = 'M-40 70 H' + (drop - 40) + ' Q' + drop + ' 70 ' + drop + ' 100 V104 Q' + drop + ' 116 ' + (drop + 12) + ' 116 H' + (house + 30);
+      el('path', { d: d, class: 'b-cable-shadow', transform: 'translate(2 3)' }, shapes);
+      el('path', { d: d, class: 'b-cable-edge' }, shapes);
+      el('path', { d: d, class: 'b-cable-body' }, shapes);
+      el('path', { d: d, class: 'b-cable-core' }, shapes);
+      path = el('path', { d: d, fill: 'none' }, shapes);
+      el('path', { d: d, class: 'b-cable-hi', transform: 'translate(-3 -6)' }, top);
+      el('image', { href: ART + 'buildings/house-normal-very-happy-day.svg', 'data-themed': '', x: house, y: 52, width: 100, height: 100 }, top);
+      items = [];
+      if (!reduce && path.getTotalLength) {
+        L = path.getTotalLength();
+        var n = Math.max(3, Math.round(L / 190));
+        for (var i = 0; i < n; i++) {
+          var img = el('image', { href: ART + 'packets/packet-' + PACKETS[(i * 5) % 16][0] + '-day.svg', 'data-themed': '', width: 30, height: 18 }, pk);
+          items.push({ n: img, o: i / n });
+        }
+        place(performance.now());
+      }
+      applyThemeArt();
+    };
+    build();
+    if ('ResizeObserver' in window) new ResizeObserver(build).observe(host);
+    else window.addEventListener('resize', build);
+    if (reduce || !path || !path.getTotalLength) return;
     var visible = false;
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(host);
-    var t0 = performance.now();
     (function frame(now) {
-      if (visible) {
-        var k = (now - t0) / 9000;
-        items.forEach(function (it) {
-          var u = (k + it.o) % 1;
-          var pt = path.getPointAtLength(u * L);
-          it.n.setAttribute('x', (pt.x - 15).toFixed(1));
-          it.n.setAttribute('y', (pt.y - 9).toFixed(1));
-          it.n.setAttribute('opacity', u > 0.97 ? ((1 - u) / 0.03).toFixed(2) : 1);
-        });
-      }
+      if (visible) place(now);
       requestAnimationFrame(frame);
     })(t0);
   }

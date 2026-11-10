@@ -290,6 +290,10 @@ em.hl { font-style: normal; background: linear-gradient(transparent 62%, color-m
   --elev: var(--shadow-1);
 }
 .theme-switch .knob .ic { width: 18px; height: 18px; }
+/* Faint sun and moon on the track, so the free side always shows where the switch goes. */
+.theme-switch .trk { position: absolute; top: 10px; width: 16px; height: 16px; color: var(--ink); opacity: .55; pointer-events: none; }
+.theme-switch .trk-sun { left: 10px; }
+.theme-switch .trk-moon { right: 10px; }
 .theme-switch .moon { display: none; }
 [data-theme="dusk"] .theme-switch .knob { transform: translateX(28px); }
 [data-theme="dusk"] .theme-switch .sun { display: none; }
