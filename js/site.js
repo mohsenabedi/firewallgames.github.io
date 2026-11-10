@@ -1,4 +1,4 @@
-// Firewall Games site: Materia interactions. No dependencies.
+// Firewall Games site interactions. No dependencies.
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -204,44 +204,6 @@
         });
       });
     });
-
-    // ---------- materia page ----------
-    var sunlab = document.querySelector('[data-sunlab]');
-    if (sunlab) sunLab(sunlab);
-    var cmp = document.querySelector('[data-compare]');
-    if (cmp) {
-      var range = cmp.querySelector('input');
-      var upd = function () { cmp.style.setProperty('--pos', range.value + '%'); };
-      range.addEventListener('input', upd);
-      upd();
-    }
-    var icons = document.querySelector('[data-icons]');
-    if (icons) {
-      icons.innerHTML = icons.getAttribute('data-icons').split(' ').map(function (n) {
-        return '<div class="icon-cell mat fiber"><svg class="ic" aria-hidden="true"><use href="' + ICONS + n + '"/></svg><span>' + n + '</span></div>';
-      }).join('');
-    }
-    document.querySelectorAll('[data-copy]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var v = b.getAttribute('data-copy');
-        if (navigator.clipboard) navigator.clipboard.writeText(v);
-        var small = b.querySelector('small');
-        var was = small.textContent;
-        small.textContent = 'Copied ' + v;
-        setTimeout(function () { small.textContent = was; }, 1200);
-      });
-    });
-    var sq = document.querySelector('[data-squircle]');
-    if (sq) {
-      var n = 5, R = 100, d = '';
-      for (var i = 0; i <= 360; i += 2) {
-        var th = i * Math.PI / 180, c = Math.cos(th), s = Math.sin(th);
-        var x = 120 + R * Math.sign(c) * Math.pow(Math.abs(c), 2 / n);
-        var y = 120 + R * Math.sign(s) * Math.pow(Math.abs(s), 2 / n);
-        d += (i ? 'L' : 'M') + x.toFixed(2) + ' ' + y.toFixed(2);
-      }
-      sq.setAttribute('d', d + 'Z');
-    }
   });
 
   // ---------- footer: a cable from the page to a happy home ----------
@@ -550,54 +512,6 @@
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowRight') show(idx + 1);
       if (e.key === 'ArrowLeft') show(idx - 1);
-    });
-  }
-
-  // ---------- materia: drag the sun, shadows follow, then it goes home to the top-left ----------
-  function sunLab(lab) {
-    var sun = lab.querySelector('.sun-h');
-    var tiles = lab.querySelectorAll('.swatch');
-    var shadowFor = function (dx, dy) {
-      var tone = theme() === 'dusk' ? '0,0,0' : '38,48,66';
-      var a = theme() === 'dusk' ? 0.3 : 0.1;
-      return '0.5px 1px 1px rgba(' + tone + ',' + (a * 1.8) + '), ' +
-        (dx * 0.4).toFixed(1) + 'px ' + (dy * 0.4).toFixed(1) + 'px 10px rgba(' + tone + ',' + a + '), ' +
-        dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px 28px rgba(' + tone + ',' + (a * 0.9) + ')';
-    };
-    var place = function (x, y) {
-      var r = lab.getBoundingClientRect();
-      lab.style.setProperty('--sun-x', x + 'px');
-      lab.style.setProperty('--sun-y', y + 'px');
-      tiles.forEach(function (t) {
-        var tr = t.getBoundingClientRect();
-        var cx = tr.left - r.left + tr.width / 2, cy = tr.top - r.top + tr.height / 2;
-        var vx = cx - x, vy = cy - y, m = Math.hypot(vx, vy) || 1;
-        t.style.setProperty('--sun-shadow', shadowFor(vx / m * 18, vy / m * 18));
-        t.style.setProperty('--sheen-a', (Math.atan2(vy, vx) * 180 / Math.PI + 90).toFixed(0) + 'deg');
-      });
-    };
-    var home = function () {
-      sun.classList.remove('dragging');
-      lab.style.removeProperty('--sun-x');
-      lab.style.removeProperty('--sun-y');
-      tiles.forEach(function (t) { t.style.removeProperty('--sun-shadow'); t.style.removeProperty('--sheen-a'); });
-    };
-    var dragging = false;
-    var move = function (e) {
-      if (!dragging) return;
-      var r = lab.getBoundingClientRect();
-      place(Math.max(0, Math.min(r.width, e.clientX - r.left)), Math.max(0, Math.min(r.height, e.clientY - r.top)));
-    };
-    sun.addEventListener('pointerdown', function (e) { dragging = true; sun.classList.add('dragging'); sun.setPointerCapture(e.pointerId); move(e); });
-    sun.addEventListener('pointermove', move);
-    sun.addEventListener('pointerup', function () { dragging = false; setTimeout(home, 700); });
-    sun.addEventListener('pointercancel', function () { dragging = false; home(); });
-    sun.addEventListener('keydown', function (e) {
-      var r = lab.getBoundingClientRect();
-      var x = parseFloat(lab.style.getPropertyValue('--sun-x')) || r.width * 0.06, y = parseFloat(lab.style.getPropertyValue('--sun-y')) || r.height * 0.08;
-      var k = { ArrowLeft: [-30, 0], ArrowRight: [30, 0], ArrowUp: [0, -30], ArrowDown: [0, 30] }[e.key];
-      if (k) { e.preventDefault(); sun.classList.add('dragging'); place(x + k[0], y + k[1]); }
-      if (e.key === 'Escape' || e.key === 'Home') home();
     });
   }
 })();
